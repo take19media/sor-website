@@ -11,7 +11,9 @@
       "Bash(cp .env.local.example .env.local)",
       "Bash(sed -i 's|^RESEND_TO_EMAIL=.*|RESEND_TO_EMAIL=richardbravouk2@gmail.com|' .env.local)",
       "Bash(sed -i 's|^NEXT_PUBLIC_WHATSAPP_NUMBER=.*|NEXT_PUBLIC_WHATSAPP_NUMBER=447869815566|' .env.local)",
-      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000/studio)"
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000/studio)",
+      "Bash(curl -s -o /dev/null -w \"home=%{http_code} privacy=\" http://localhost:3000/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000/privacy)"
     ]
   }
 }
