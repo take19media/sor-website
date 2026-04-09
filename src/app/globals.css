@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; }
+
+html, body { background: #FAF8F5; color: #1A1A1A; }
+
+body {
+  font-family: var(--font-sans), Inter, system-ui, sans-serif;
+  font-feature-settings: "ss01", "ss02";
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, .serif {
+  font-family: var(--font-serif), "Cormorant Garamond", serif;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.hairline { border-color: #E6E2DA; }
