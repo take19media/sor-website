@@ -16,7 +16,7 @@ Open <http://localhost:3000>. The embedded Sanity Studio lives at <http://localh
 
 See `.env.local.example`. Required:
 
-- `NEXT_PUBLIC_SANITY_PROJECT_ID` (default `xua6ijxm`)
+- `NEXT_PUBLIC_SANITY_PROJECT_ID` (default `xua6ijxw`)
 - `NEXT_PUBLIC_SANITY_DATASET` (default `product`)
 - `RESEND_API_KEY`, `RESEND_TO_EMAIL` — enables the application form. Without these, submissions are logged to the server console only.
 - `NEXT_PUBLIC_WHATSAPP_NUMBER` — international format, no `+`. Enables the WhatsApp link in the header/footer and the mobile floating button.
