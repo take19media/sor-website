@@ -2,9 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-:root { color-scheme: light; }
+:root {
+  color-scheme: light;
+  --color-cream: 250 248 245;
+  --color-ink: 26 26 26;
+  --color-slate: 92 107 122;
+  --color-rule: 230 226 218;
+}
 
-html, body { background: #FAF8F5; color: #1A1A1A; }
+html, body { background: rgb(var(--color-cream)); color: rgb(var(--color-ink)); }
 
 body {
   font-family: var(--font-sans), Inter, system-ui, sans-serif;
@@ -18,4 +24,4 @@ h1, h2, h3, .serif {
   letter-spacing: -0.01em;
 }
 
-.hairline { border-color: #E6E2DA; }
+.hairline { border-color: rgb(var(--color-rule)); }

@@ -1,5 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
-import { sanityClient } from "@/sanity/client";
+import { sanityClient, urlFor } from "@/sanity/client";
 import { siteSettingsQuery } from "@/sanity/queries";
 
 export const revalidate = 60;
@@ -11,13 +12,21 @@ export default async function HomePage() {
     settings?.introParagraph ||
     "Richard Bravo is an independent jewellery studio producing small-run, handmade pieces for a carefully chosen group of retail partners. Each collection is offered to stockists on a sale or return basis, so outlets can present the work without committing capital upfront.";
 
+  const heroUrl = settings?.heroImage
+    ? urlFor(settings.heroImage).width(2400).height(1350).auto("format").url()
+    : null;
+
   return (
     <>
       {/* Hero */}
       <section className="relative w-full aspect-[16/9] bg-rule overflow-hidden">
-        <div className="absolute inset-0 flex items-center justify-center text-ink/30 serif text-xl md:text-3xl">
-          Hero image — 2400 × 1350
-        </div>
+        {heroUrl ? (
+          <Image src={heroUrl} alt="" fill className="object-cover" priority sizes="100vw" />
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center text-ink/30 serif text-xl md:text-3xl">
+            Hero image — 2400 × 1350
+          </div>
+        )}
       </section>
 
       <section className="mx-auto max-w-3xl px-5 md:px-8 pt-16 md:pt-24">

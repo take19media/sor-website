@@ -5,10 +5,10 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        cream: "#FAF8F5",
-        ink: "#1A1A1A",
-        slate: "#5C6B7A",
-        rule: "#E6E2DA",
+        cream: "rgb(var(--color-cream) / <alpha-value>)",
+        ink: "rgb(var(--color-ink) / <alpha-value>)",
+        slate: "rgb(var(--color-slate) / <alpha-value>)",
+        rule: "rgb(var(--color-rule) / <alpha-value>)",
         whatsapp: "#25D366",
       },
       fontFamily: {

@@ -1,7 +1,10 @@
 import { groq } from "next-sanity";
 
 export const siteSettingsQuery = groq`*[_type == "siteSettings"][0]{
-  brandName, tagline, contactEmail, whatsappNumber, introParagraph
+  brandName, tagline, contactEmail, whatsappNumber, introParagraph,
+  heroImage, headerLogo,
+  colorCream, colorInk, colorSlate, colorRule,
+  fontSerif, fontSans
 }`;
 
 export const allPiecesByCollectionQuery = groq`*[_type == "collection"] | order(order asc, title asc){
