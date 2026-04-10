@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { createPortal } from "react-dom";
 import { useEffect, useState } from "react";
 
 const nav = [
@@ -13,7 +14,9 @@ export default function Header() {
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [open]);
 
   return (
@@ -40,36 +43,42 @@ export default function Header() {
         </div>
       </header>
 
-      {open && (
-        <div
-          style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            width: "100vw",
-            height: "100vh",
-            zIndex: 9999,
-            backgroundColor: "#FAF8F5",
-            display: "flex",
-            flexDirection: "column",
-            overflow: "hidden",
-          }}
-        >
-          <div className="h-16 px-5 flex items-center justify-between border-b hairline shrink-0">
-            <span className="serif text-xl">Richard Bravo</span>
-            <button aria-label="Close menu" onClick={() => setOpen(false)} className="text-sm">
-              Close
-            </button>
-          </div>
-          <nav className="flex flex-col gap-6 px-5 py-10 serif text-3xl">
-            {nav.map((n) => (
-              <Link key={n.href} href={n.href} onClick={() => setOpen(false)}>
-                {n.label}
-              </Link>
-            ))}
-          </nav>
-        </div>
-      )}
+      {open &&
+        createPortal(
+          <div
+            style={{
+              position: "fixed",
+              top: 0,
+              left: 0,
+              width: "100vw",
+              height: "100vh",
+              zIndex: 99999,
+              backgroundColor: "#FAF8F5",
+              display: "flex",
+              flexDirection: "column",
+              overflow: "hidden",
+            }}
+          >
+            <div className="h-16 px-5 flex items-center justify-between border-b hairline shrink-0">
+              <span className="serif text-xl">Richard Bravo</span>
+              <button
+                aria-label="Close menu"
+                onClick={() => setOpen(false)}
+                className="text-sm"
+              >
+                Close
+              </button>
+            </div>
+            <nav className="flex flex-col gap-6 px-5 py-10 serif text-3xl">
+              {nav.map((n) => (
+                <Link key={n.href} href={n.href} onClick={() => setOpen(false)}>
+                  {n.label}
+                </Link>
+              ))}
+            </nav>
+          </div>,
+          document.body
+        )}
     </>
   );
 }
