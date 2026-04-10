@@ -41,8 +41,11 @@ export default function Header() {
       </header>
 
       {open && (
-        <div className="fixed inset-0 z-[999] bg-cream md:hidden flex flex-col">
-          <div className="h-16 px-5 flex items-center justify-between border-b hairline">
+        <div
+          className="fixed top-0 left-0 right-0 bottom-0 w-full h-full z-[999] md:hidden flex flex-col overflow-hidden"
+          style={{ backgroundColor: "#FAF8F5" }}
+        >
+          <div className="h-16 px-5 flex items-center justify-between border-b hairline shrink-0">
             <span className="serif text-xl">Richard Bravo</span>
             <button aria-label="Close menu" onClick={() => setOpen(false)} className="text-sm">
               Close
