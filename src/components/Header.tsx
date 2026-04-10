@@ -42,8 +42,18 @@ export default function Header() {
 
       {open && (
         <div
-          className="fixed top-0 left-0 right-0 bottom-0 w-full h-full z-[999] md:hidden flex flex-col overflow-hidden"
-          style={{ backgroundColor: "#FAF8F5" }}
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100vw",
+            height: "100vh",
+            zIndex: 9999,
+            backgroundColor: "#FAF8F5",
+            display: "flex",
+            flexDirection: "column",
+            overflow: "hidden",
+          }}
         >
           <div className="h-16 px-5 flex items-center justify-between border-b hairline shrink-0">
             <span className="serif text-xl">Richard Bravo</span>
